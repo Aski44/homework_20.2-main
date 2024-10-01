@@ -1,0 +1,25 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form class="row" method="post" enctype="multipart/form-data">
+                    <div class="card shadow-sm">
+                        <p class="card-text">Вы уверены, что хотите удалить карточку? {{ object.name }}</p>
+                        <div class="card-body">
+                            {% csrf_token %}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">Удалить</button>
+                                <a class="btn btn-primary" href="{% url 'catalog:catalog_list' %}" role="button">Отмена</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
